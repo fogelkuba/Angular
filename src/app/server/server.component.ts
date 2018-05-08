@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 
 export class ServerComponent{
-  serverId: number = 13143240;
+  serverId: number = 131411240;
   serverStatus: string = 'online';
 
   getServerStatus(){
