@@ -6,8 +6,6 @@ import { Component } from '@angular/core';
 })
 
 export class ServerComponent{
-  constructor(){
-
-  }
-  ngOnInit(){}
+  serverId: number = 10;
+  serverStatus: string = 'online';
 }
