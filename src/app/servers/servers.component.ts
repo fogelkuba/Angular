@@ -15,7 +15,6 @@ import { Component, OnInit } from '@angular/core';
     <app-server></app-server>
     <app-server></app-server>
     <span>{{serverCreationStatus}}</span>
-    
   `,
   styleUrls: ['./servers.component.css']
 })
