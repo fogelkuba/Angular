@@ -6,10 +6,16 @@ import {logging} from "selenium-webdriver";
   template: `
     <h2>Serwery:</h2>
     <label>Server Name </label>
-    <input 
-      type="text" 
+    <!--<input -->
+      <!--type="text" -->
+      <!--class="form-control"-->
+      <!--(input)="onUpdateServerName($event)"-->
+    <!--&gt;-->
+    <input
+      type="text"
       class="form-control"
-      (input)="onUpdateServerName($event)"
+      placeholder="type server name here"
+      [(ngModel)]="serverName"
     >
     <p>{{ serverName }}</p>
     <button 
@@ -19,7 +25,7 @@ import {logging} from "selenium-webdriver";
     >
       Add Server
     </button>
-    <p>{{allowNewServer}}</p>
+    <p>{{ allowNewServer }}</p>
     <app-server></app-server>
     <app-server></app-server>
     <span>{{serverCreationStatus}}</span>
