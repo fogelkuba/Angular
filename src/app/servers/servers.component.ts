@@ -15,14 +15,12 @@ import {logging} from "selenium-webdriver";
       type="text"
       class="form-control"
       placeholder="type server name here"
-      [(ngModel)]="serverName"
-    >
+      [(ngModel)]="serverName">
     <!--<p>{{ serverName }}</p>-->
     <button 
       [disabled]="!allowNewServer"
       class="btn btn-primary"
-      (click)="onCreateServer()" 
-    >
+      (click)="onCreateServer()">
       Add Server
     </button>
     <!--<p>{{ allowNewServer }}</p>-->
@@ -31,8 +29,7 @@ import {logging} from "selenium-webdriver";
     <ng-template #noServer>
       <p> No sever was created</p>
     </ng-template>
-    <app-server></app-server>
-    <app-server></app-server>
+    <app-server *ngFor="let server of servers"></app-server>
   `,
   styleUrls: ['./servers.component.css']
 })
@@ -40,6 +37,7 @@ import {logging} from "selenium-webdriver";
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverName = '';
+  servers = ['server1', 'server2'];
   // serverCreationStatus = '';
   serverCreationStatus = false;
   constructor() {
@@ -53,6 +51,7 @@ export class ServersComponent implements OnInit {
   onCreateServer(){
     // this.serverCreationStatus = `NEW server was created. Name is: ${this.serverName}`
     this.serverCreationStatus = true;
+    this.servers.push(this.serverName);
   }
   onUpdateServerName(event: Event){
     // console.log(event);
