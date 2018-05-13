@@ -17,7 +17,7 @@ import {logging} from "selenium-webdriver";
       placeholder="type server name here"
       [(ngModel)]="serverName"
     >
-    <p>{{ serverName }}</p>
+    <!--<p>{{ serverName }}</p>-->
     <button 
       [disabled]="!allowNewServer"
       class="btn btn-primary"
@@ -26,7 +26,8 @@ import {logging} from "selenium-webdriver";
       Add Server
     </button>
     <!--<p>{{ allowNewServer }}</p>-->
-    <p>{{serverCreationStatus}}</p>
+    <!--<p>{{serverCreationStatus}}</p>-->
+    <p *ngIf="serverCreationStatus"> SERVER was created. NAME: {{serverName}} </p>
     <app-server></app-server>
     <app-server></app-server>
   `,
@@ -36,7 +37,8 @@ import {logging} from "selenium-webdriver";
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverName = '';
-  serverCreationStatus = 'NO server created';
+  // serverCreationStatus = '';
+  serverCreationStatus = false;
   constructor() {
     setTimeout( ()=> {
         this.allowNewServer = true;
@@ -46,7 +48,8 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
   onCreateServer(){
-    this.serverCreationStatus = `NEW server was created. Name is: ${this.serverName}`
+    // this.serverCreationStatus = `NEW server was created. Name is: ${this.serverName}`
+    this.serverCreationStatus = true;
   }
   onUpdateServerName(event: Event){
     // console.log(event);
