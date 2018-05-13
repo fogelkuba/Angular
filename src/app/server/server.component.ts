@@ -3,6 +3,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
+  styles: [`
+    p{
+      border: 1px solid gray;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    .online{
+      border: 1px solid green;
+      border-radius: 5px;
+    }
+  `]
 })
 
 export class ServerComponent{

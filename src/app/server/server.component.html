@@ -2,7 +2,8 @@
   [ngStyle]="{
     color: getColor(),
     fontWeight: 'bold'
-  }">
-
+  }"
+  [ngClass]="{ 'online': serverStatus === 'online' }"
+  >
   Server with id-{{ serverId }} is {{ getServerStatus() }}
 </p>
