@@ -27,7 +27,10 @@ import {logging} from "selenium-webdriver";
     </button>
     <!--<p>{{ allowNewServer }}</p>-->
     <!--<p>{{serverCreationStatus}}</p>-->
-    <p *ngIf="serverCreationStatus"> SERVER was created. NAME: {{serverName}} </p>
+    <p *ngIf="serverCreationStatus; else noServer"> SERVER was created. NAME: {{serverName}} </p>
+    <ng-template #noServer>
+      <p> No sever was created</p>
+    </ng-template>
     <app-server></app-server>
     <app-server></app-server>
   `,
