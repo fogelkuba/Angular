@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import {logging} from "selenium-webdriver";
 
 @Component({
   selector: '[app-servers]',
   template: `
     <h2>Serwery:</h2>
+    <label>Server Name </label>
+    <input 
+      type="text" 
+      class="form-control"
+      (input)="onUpdateServerName($event)"
+    >
     <button 
       [disabled]="!allowNewServer"
       class="btn btn-primary"
@@ -21,6 +28,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class ServersComponent implements OnInit {
   allowNewServer = false;
+  serverName = '';
   serverCreationStatus = 'NO server created';
   constructor() {
     setTimeout( ()=> {
@@ -32,5 +40,9 @@ export class ServersComponent implements OnInit {
   }
   onCreateServer(){
     this.serverCreationStatus = 'NEW server created recently'
+  }
+  onUpdateServerName(event: Event){
+    // console.log(event);
+    this.serverName = event.target.value;
   }
 }
