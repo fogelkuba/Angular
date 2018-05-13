@@ -11,6 +11,7 @@ import {logging} from "selenium-webdriver";
       class="form-control"
       (input)="onUpdateServerName($event)"
     >
+    <p>{{ serverName }}</p>
     <button 
       [disabled]="!allowNewServer"
       class="btn btn-primary"
@@ -43,6 +44,6 @@ export class ServersComponent implements OnInit {
   }
   onUpdateServerName(event: Event){
     // console.log(event);
-    this.serverName = event.target.value;
+    this.serverName = (<HTMLInputElement>event.target).value;
   }
 }
