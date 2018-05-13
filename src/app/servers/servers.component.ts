@@ -25,10 +25,10 @@ import {logging} from "selenium-webdriver";
     >
       Add Server
     </button>
-    <p>{{ allowNewServer }}</p>
+    <!--<p>{{ allowNewServer }}</p>-->
+    <p>{{serverCreationStatus}}</p>
     <app-server></app-server>
     <app-server></app-server>
-    <span>{{serverCreationStatus}}</span>
   `,
   styleUrls: ['./servers.component.css']
 })
@@ -46,7 +46,7 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
   onCreateServer(){
-    this.serverCreationStatus = 'NEW server created recently'
+    this.serverCreationStatus = `NEW server was created. Name is: ${this.serverName}`
   }
   onUpdateServerName(event: Event){
     // console.log(event);
